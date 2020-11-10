@@ -134,8 +134,8 @@ extension SerrataTransition: UIViewControllerAnimatedTransitioning {
         }
         let containerView = transitionContext.containerView
 
-        toViewController.view.frame = transitionContext.finalFrame(for: fromViewController)
-        containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
+//        toViewController.view.frame = transitionContext.finalFrame(for: fromViewController)
+//        containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
 
         /// landscape animation cancel avoidance
         let dummyClearView = UIView(frame: toViewController.view.frame)
