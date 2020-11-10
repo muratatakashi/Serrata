@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 public protocol SlideLeafCellDelegate: class {
     func slideLeafScrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?)
@@ -31,7 +31,7 @@ public final class SlideLeafCell: UICollectionViewCell {
 
     @IBOutlet weak private var activityIndicatorView: UIActivityIndicatorView! {
         didSet {
-            activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
+            activityIndicatorView.style = .whiteLarge
             activityIndicatorView.isHidden = true
         }
     }
@@ -67,12 +67,12 @@ public final class SlideLeafCell: UICollectionViewCell {
             activityIndicatorView.startAnimating()
             activityIndicatorView.isHidden = false
 
-            imageView.kf.setImage(with: URL(string: url)) { [weak self] image, _, _, _ in
-                guard let me = self, let image = image else { return }
-                me.activityIndicatorView.isHidden = true
-                me.activityIndicatorView.stopAnimating()
-                me.setImage(image)
-            }
+//            imageView.kf.setImage(with: URL(string: url)) { [weak self] image, _, _, _ in
+//                guard let me = self, let image = image else { return }
+//                me.activityIndicatorView.isHidden = true
+//                me.activityIndicatorView.stopAnimating()
+//                me.setImage(image)
+//            }
         }
     }
 
