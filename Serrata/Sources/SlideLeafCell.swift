@@ -67,11 +67,17 @@ public final class SlideLeafCell: UICollectionViewCell {
             activityIndicatorView.startAnimating()
             activityIndicatorView.isHidden = false
 
-            imageView.kf.setImage(with: URL(string: url)) { [weak self] image, _, _, _ in
-                guard let me = self, let image = image else { return }
-                me.activityIndicatorView.isHidden = true
-                me.activityIndicatorView.stopAnimating()
-                me.setImage(image)
+            imageView.kf.setImage(with: URL(string: url)) { [weak self] (result) in
+                guard let me = self else { return }
+
+                switch result {
+                case let .success(res):
+                    me.activityIndicatorView.isHidden = true
+                    me.activityIndicatorView.stopAnimating()
+                    me.setImage(res.image)
+                case let .failure(error):
+                    print("\(me): \(error.localizedDescription)")
+                }
             }
         }
     }
